@@ -29,6 +29,9 @@ trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 
 app = Flask(__name__)
+
+# Initialize Honeycomb 
+# Initialize automatic instrumentation with flask
 FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
 frontend = os.getenv('FRONTEND_URL')
