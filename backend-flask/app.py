@@ -41,7 +41,7 @@ tracer = trace.get_tracer(__name__)
 
 # Configuring AWS X-Ray -----------------
 xray_url = os.getenv("AWS_XRAY_URL")
-xray_recorder.configure(service="backend-flask" dynamic_naming='xray_url')
+xray_recorder.configure(service="backend-flask", dynamic_naming='xray_url')
 
 app = Flask(__name__)
 
