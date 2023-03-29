@@ -5,7 +5,7 @@ class UserActivities:
   def run(user_handle):
 
     # Start a segment
-    segment = xray_recorder.begin_segment('user_activities_model')
+    # segment = xray_recorder.begin_segment('user_activities_model')
 
     model = {
       'errors': None,
@@ -14,12 +14,12 @@ class UserActivities:
 
     now = datetime.now(timezone.utc).astimezone()
     
-    dict= {
-      "now": now.isoformat(),
-    }
+    # dict= {
+    #   "now": now.isoformat(),
+    # }
     
     # Add metadata or annotation here if necessary
-    segment.put_metadata('key', dict, 'namespace')
+    # segment.put_metadata('key', dict, 'namespace')
    
     if user_handle == None or len(user_handle) < 1:
       model['errors'] = ['blank_user_handle']
@@ -35,10 +35,10 @@ class UserActivities:
       model['data'] = results
   
     # Start a subsegment
-    subsegment = xray_recorder.begin_subsegment('user_activities_results')
-    dict= {
-      "now": now.isoformat(),
-      "result-size": len(model['data'])
-    }
-    subsegment.put_metadata('key', dict, 'namespace')
+    # subsegment = xray_recorder.begin_subsegment('user_activities_results')
+    # dict= {
+    #   "now": now.isoformat(),
+    #   "result-size": len(model['data'])
+    # }
+    # subsegment.put_metadata('key', dict, 'namespace')
     return model
